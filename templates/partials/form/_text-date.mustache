@@ -1,0 +1,55 @@
+<div id="id-{{field}}-form-group" class="form-group date-group {{classes}}">
+  <fieldset>
+    <legend class="form-label-bold text" for="id-{{field}}">
+      {{label}}
+    </legend>
+    <div id="id-{{field}}-error-message" class="form-error validation-message">
+      {{error}}
+    </div>
+    <div class="form-date">
+      <div class="form-hint">
+        {{{help}}}
+      </div>
+      <div class="form-error validation-message hidden">{{error}}</div>
+      <div class="form-group form-group-day">
+        <label>Day</label>
+        <input type="text" name="{{field}}-day" class="day js-day form-control" size="2" maxlength="2" 
+        data-parsley-trigger="focusout" 
+        data-parsley-range="[1,31]"
+        data-parsley-range-message="Day must be between 1 and 31"
+        data-parsley-type="number"
+        data-parsley-type-message="Day must be between 1 and 31"
+        data-parsley-errors-container="#id-{{field}}-error-message"
+        data-parsley-class-handler="#id-{{field}}-form-group" 
+        {{#parsley-validation}}data-parsley-{{validator}}={{value}} data-parsley-{{validator}}-message="Day {{error-message}}"{{/parsley-validation}}
+        >
+      </div>
+      <div class="form-group form-group-month">
+        <label>Month</label>
+        <input type="text" name="{{field}}-month" class="month js-month form-control" size="2" maxlength="2"
+        data-parsley-trigger="focusout" 
+        data-parsley-range="[1,12]"
+        data-parsley-range-message="Month must be between 1 and 12"
+        data-parsley-type="number"
+        data-parsley-type-message="Month must be between 1 and 12"
+        data-parsley-errors-container="#id-{{field}}-error-message"
+        data-parsley-class-handler="#id-{{field}}-form-group" 
+        {{#parsley-validation}}data-parsley-{{validator}}={{value}} data-parsley-{{validator}}-message="Month {{error-message}}"{{/parsley-validation}} 
+        >
+      </div>
+      <div class="form-group form-group-year">
+        <label>Year</label>
+        <input type="text" name="{{field}}-year" class="year js-year form-control" size="4" maxlength="4"
+        data-parsley-trigger="focusout" 
+        data-parsley-range="[1890,2115]"
+        data-parsley-range-message="Please enter a valid year"
+        data-parsley-type="number"
+        data-parsley-type-message="Please enter a valid year"
+        data-parsley-errors-container="#id-{{field}}-error-message"
+        data-parsley-class-handler="#id-{{field}}-form-group" 
+        {{#parsley-validation}}data-parsley-{{validator}}={{value}} data-parsley-{{validator}}-message="Year {{error-message}}"{{/parsley-validation}} 
+        >
+      </div>
+    </div>
+  </fieldset>
+</div>

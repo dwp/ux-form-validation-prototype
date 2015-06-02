@@ -1,0 +1,19 @@
+<div id="id-{{field}}-form-group" class="form-group {{classes}}" {{attributes}}>
+  <label class="form-label-bold text" for="id-{{field}}">
+    {{label}}
+  </label>
+  <div id="id-{{field}}-error-message" class="form-error validation-message">
+    {{error}}
+  </div>
+  <div>
+    {{&detail}}
+  </div>
+  <div class="form-hint text">
+    {{&help}}
+  </div>
+  <textarea id="id-{{field}}" name="{{field}}" class="form-control" rows="5" {{inputAttributes}}
+  {{#parsley-validation}}data-parsley-{{validator}}={{value}} data-parsley-{{validator}}-message="{{error-message}}"{{/parsley-validation}} data-parsley-class-handler="#id-{{field}}-form-group" 
+  data-parsley-errors-container="#id-{{field}}-error-message"
+  data-parsley-trigger="focusout" 
+  >{{value}}</textarea>
+</div>

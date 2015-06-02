@@ -1,0 +1,128 @@
+{{<layouts/_govuk_template}}
+  {{$pageTitle}}{{#anyErrors}}Retry - {{/anyErrors}}{{$htmlTitle}}Home{{/htmlTitle}} Form builder{{/pageTitle}}
+
+  {{$cookieMessage}}
+    <p>
+      We have placed cookies on your computer to help make this website better. You can change your cookies settings at any time and can
+      <a href="{{cookiePolicyLink}}">find out about cookies here</a>. If you continue using this site we will assume you accept these cookies.
+    </p>
+  {{/cookieMessage}}
+
+  {{$head}}
+
+    <!-- build:css public/styles/main.css -->
+    <link href="public/stylesheets/main.css" rel="stylesheet" type="text/css">
+    <link href="public/stylesheets/custom.css" rel="stylesheet" type="text/css">
+    <!-- endbuild -->
+
+
+    <!-- build:css public/styles/base-ie6.min.css --><!--[if IE 6]><link href="{{ucAssetPath}}public/styles/base-ie6.css" rel="stylesheet" type="text/css"><![endif]--><!-- endbuild -->
+    <!--[if IE 6]><script>window.ieVersion=6;</script><![endif]-->
+    <!-- build:css /styles/base-ie7.min.css --><!--[if IE 7]><link href="{{ucAssetPath}}public/styles/base-ie7.css" rel="stylesheet" type="text/css"><![endif]--><!-- endbuild -->
+    <!--[if IE 7]><script>window.ieVersion=7;</script><![endif]-->
+    <!-- build:css /styles/ie8-only.min.css --><!--[if IE 8]><link href="{{ucAssetPath}}public/styles/ie8-only.css" rel="stylesheet" type="text/css"><![endif]--><!-- endbuild -->
+    <!--[if IE 8]><script>window.ieVersion=8;</script><![endif]-->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="True" name="HandheldFriendly">
+    <meta content="320" name="MobileOptimized">
+
+
+  {{/head}}
+
+  {{$bodyClasses}}{{#traceable}}traceable {{/traceable}}{{#agentPage}}agent{{/agentPage}}{{^agentPage}}claimant{{/agentPage}}{{/bodyClasses}}
+
+  {{$propositionHeader}}
+    <div class="header-proposition">
+      <div class="content">
+        {{! while sign out is the only menu option these conditionals stop the
+            menu appearing when the user is not logged in. }}
+        {{#showNavBar}}
+          <a href="#proposition-links" class="js-header-toggle menu">Menu</a>
+        {{/showNavBar}}
+        <nav id="proposition-menu">
+          <span id="proposition-name">Form builder</span>
+          {{#showNavBar}}
+            <ul id="proposition-links">
+              <li><a href="/sign-out">Sign out</a></li>
+          </ul>
+          {{/showNavBar}}
+        </nav>
+      </div>
+    </div>
+  {{/propositionHeader}}
+
+  {{$headerClass}}with-proposition{{/headerClass}}
+
+  {{$content}}
+
+    {{#hasNotificationMessage}}
+      <div class="notification-message js-notification-fade">
+          <p id="notification-message">{{#i18n}}{{notificationMessage}}{{/i18n}}</p>
+      </div>
+    {{/hasNotificationMessage}}
+
+    <main role="main" id="wrapper">
+      <div id="content">
+
+        <div class="inner-block">
+          <div class="phase-banner">
+            <p>
+              <strong class="phase-tag">ALPHA</strong>
+              <span>This is a new service – your feedback will help us to improve it.</span>
+            </p>
+          </div>
+        </div>
+
+        <div id="top-links" class="inner-block">
+            {{$topLinks}}{{/topLinks}}
+        </div>
+
+        {{#showNavBar}}
+          <div id="app-menu" class="inner-block">
+            <div class="content">
+              <nav>
+                <ul>
+                  {{#agentPage}}
+                    {{>agent/_menu}}
+                  {{/agentPage}}
+                  {{^agentPage}}
+                    {{>shared/_menu}}
+                  {{/agentPage}}
+                </ul>
+              </nav>
+            </div>
+          </div>
+        {{/showNavBar}}
+
+        <div class="logo-banner">
+          <div class="logo">
+            <span class="organisation-logo">Department for Work &amp; Pensions</span>
+          </div>
+        </div>
+
+        {{$page}}{{/page}}
+
+      </div>
+    </main>
+  {{/content}}
+
+  {{$footerSupportLinks}}
+    <h2 class="visuallyhidden">{{uc.template.supportlinks.title}}</h2>
+    <ul>
+      <li class="support-numbers">
+        {{uc.template.contact.help}}
+        <a href="tel:{{uc.template.contact.telephone1.unformatted}}">
+          {{uc.template.contact.telephone1.formatted}}
+        </a>
+        {{uc.template.contact.or}}
+        <a href="tel:{{uc.template.contact.telephone2.unformatted}}">
+          {{uc.template.contact.telephone2.formatted}}
+        </a>.
+      </li>
+      <li><a href="{{privacyPolicyLink}}">{{uc.template.supportlinks.privacyPolicy}}</a></li>
+      <li><a href="{{cookiePolicyLink}}">{{uc.template.supportlinks.cookiePolicy}}</a></li>
+    </ul>
+  {{/footerSupportLinks}}
+
+{{/layouts/_govuk_template}}

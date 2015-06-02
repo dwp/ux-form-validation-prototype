@@ -1,0 +1,85 @@
+{{<layouts/_app}}
+
+{{$page}}
+
+  <div class="column-two-thirds">
+  <a href="form-start.html" class="example-back-link">Back</a>
+  {{<partials/_page-heading}}
+    {{$title}}Form builder{{/title}}
+  {{/partials/_page-heading}}
+
+  <p class="font-medium">{{explanation}}</p>
+
+    <form id="form-main">
+
+      {{#example_text}}
+        {{>partials/form/_text}}
+      {{/example_text}}
+
+      {{#address}}
+        {{>partials/form/_textarea}}
+      {{/address}}
+
+      {{#dateofbirth}}
+        {{>partials/form/_text-date}}
+      {{/dateofbirth}}
+
+      {{#nino}}
+        {{>partials/form/_text}}
+      {{/nino}}
+
+      {{#radioButton}}
+        {{>partials/form/_radio-options}}
+      {{/radioButton}}
+
+      {{#requester}}
+        {{>partials/form/_radio-options}}
+      {{/requester}}
+
+      <div class="panel-indent js-hidden" id="additional-details" aria-hidden="false" >
+            <div class="form-group">
+              <p class="form-label-bold add-padding" for="fullName">Additional details</p> 
+              {{#additionalDetails}}
+                {{>partials/form/_text}}
+              {{/additionalDetails}}
+              
+          </div>
+     </div>
+
+
+    {{#checkButtons}}
+        {{>partials/form/_check-options}}
+    {{/checkButtons}}
+
+    {{#moneyField}}
+        {{>partials/form/_text-money}}
+    {{/moneyField}}
+
+    {{#selectField}}
+        {{>partials/form/_select}}
+    {{/selectField}}
+
+
+
+      <div class="transaction">
+        <p class="get-started group">
+          <a class="button" href="javascript:submitForm();">Send form</a>
+        </p>
+        <p id="wait" class="js-hidden"><img src="public\images\ajax-wait.gif"> Sending form....please wait</p>
+        <p id="form-error-message" class="form-error js-hidden">There was a problem sending the form</p>
+      </div>
+
+    </form>
+
+  </div>
+  
+
+
+{{/page}}
+
+
+
+{{/layouts/_app}}
+
+
+<script src="public/javascripts/form-main.js"></script>

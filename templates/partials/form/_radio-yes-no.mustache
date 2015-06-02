@@ -1,0 +1,21 @@
+<div class="form-group {{classes}}">
+  <fieldset class="inline">
+    <legend class="form-label-bold text">
+      {{label}}
+    </legend>
+    <div class="form-hint text radio-hint">
+      {{help}}
+    </div>
+    <div class="form-error validation-message">
+      {{error}}
+    </div>
+    <label class="block-label">
+      <input type="radio" name="{{radio-group}}" value="true" />
+      Yes
+    </label>
+    <label for="{{$field}}{{/field}}-clickable-false" class="block-label">
+      <input type="radio" name="{{radio-group}}" value="false" />
+      No
+    </label>
+  </fieldset>
+</div>

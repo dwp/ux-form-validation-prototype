@@ -1,0 +1,45 @@
+{{<layouts/_app}}
+
+{{$page}}
+
+  <div class="grid-row">
+  
+  <div class="column-two-thirds">
+  
+    <a href="start.html" class="example-back-link">Back</a>
+    
+    <h1 class="form-title heading-large" style="margin: .5em 0 0">
+      Form building kit
+    </h1>
+    <p class="font-medium">An example site for prototyping forms with validation.</p>
+    <p>Pages are a combination of mustache templates and JSON data to populate them.</p>
+    <p>Define your mustache templates in the 'templates' folder. These can also contain just plain HTML - you don't need to extract everything into JSON. Templates can contain other mustache partials, so for instance forms can be built up using the existing form elements that are defined.</p>
+    <p>JSON files have the same name as their equivalent templates and can be found in the 'data' folder.</p>
+    
+    <div class="transaction">
+      <p class="get-started group">
+        <a class="button" href="form-main.html">Start</a>
+      </p>
+    </div>
+    
+  </div>
+    
+  <div class="column-third related">
+                     
+    {{! <h2 class="heading-medium" style="border-top: 2px solid #005ea5; padding-top: 15px;">Your details</h2> 
+    
+    <p class="font-small">Dr Joan Smith <br>
+    0123456789 <br>
+    Oak Tree Surgery, London<br>    
+    joansmith@nhs.net</p>
+    
+    <p><a href="#">Edit details</a></p> }}
+    
+  </div>
+    
+  </div>
+
+
+{{/page}}
+
+{{/layouts/_app}}

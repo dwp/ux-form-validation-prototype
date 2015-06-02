@@ -1,0 +1,201 @@
+{
+  "explanation":"Example form with validation",
+
+  "example_text": {
+    "field": "example_text",
+    "label": "Text field",
+    "help": "Set up as a required field",
+    "parsley-validation": 
+    [
+      {
+        "validator": "required",
+        "value": true,
+        "error-message":"This is a required field"
+      }
+    ]
+  },
+
+  "address": {
+    "field": "patientAddress",
+    "label": "Text area (optional)",
+    "help": "",
+    "parsley-validation": 
+    [
+      {
+        "validator": "required",
+        "value": true,
+        "error-message":"This is a required field"
+      }
+    ]
+  },
+
+  "nino": {
+    "field": "patientNino",
+    "label": "National Insurance number",
+    "help": "Required, and also uses a regex.",
+    "parsley-validation": 
+    [
+      {
+        "validator": "required",
+        "value": true,
+        "error-message":"This is a required field"
+      },
+      {
+        "validator": "pattern",
+        "value": "^(?!BG|GB|NK|KN|TN|NT|ZZ|bg|gb|nk|kn|tn|nt|zz)[abceghj-prstw-zABCEGHJ-PRSTW-Z][abceghj-nprstw-zABCEGHJ-NPRSTW-Z]\\s*\\d{2}\\s*\\d{2}\\s*\\d{2}[a-dA-D]$",
+        "error-message":"National Insurance number should be in format: QQ 12 34 56 C"
+      }
+    ]
+  },
+
+
+  "dateofbirth": {
+    "field": "dateOfBirth",
+    "label": "Date of birth",
+    "help": "For example, 21 4 1979<br>This type has some validation built directly into the mustache partial so we don't need to specify it in the JSON every time",
+    "parsley-validation": 
+    [
+      {
+        "validator": "required",
+        "value": true,
+        "error-message":" is a required field"
+      }
+    ]
+  },
+
+
+  "radioButton": {
+    "field": "radioButton",
+    "label": "Radio buttons",
+    "classes": "inline",
+     "options": [
+      {
+        "index": 1,
+        "label": "Yes"
+      },
+
+      {
+        "index": 2,
+        "label": "No"
+      }
+    ],
+    "parsley-validation": 
+    [
+      {
+        "validator": "required",
+        "value": true,
+        "error-message":"This is a required field"
+      }
+    ]
+  },
+
+  "requester": {
+    "field": "formRequester",
+    "label": "Revealing additional fields",
+    "help": "Use the 'reveal-target' attribute on a radio button to show an additional div. If the fields in the div are marked as required, they are ignored if they are not visible.",
+    "options": [
+      {
+        "index": 1,
+        "label": "Normal button"
+      },
+
+      {
+        "index": 2,
+        "label": "Reveal button",
+        "reveal-target": "additional-details"
+      }
+    ],
+    "parsley-validation": 
+    [
+      {
+        "validator": "required",
+        "value": true,
+        "error-message":"This is a required field"
+      }
+    ]
+  },
+
+"additionalDetails": {
+    "field": "additionalDetails",
+    "label": "",
+    "help": "Give further details here"
+  },
+
+  "checkButtons": {
+    "field": "checkButtons",
+    "label": "Check buttons",
+    "help": "Select one or more - validator is set so you must select at least 2",
+    "options": [
+      {
+        "index": 1,
+        "label": "item 1"
+      },
+      {
+        "index": 2,
+        "label": "Item 2"
+      },
+      {
+        "index": 3,
+        "label": "Item 3"
+      }
+    ],
+    "parsley-validation": 
+    [
+      {
+        "validator": "required",
+        "value": true,
+        "error-message":"This is a required field"
+      },
+      {
+        "validator": "mincheck",
+        "value": 2,
+        "error-message" : "You must select at least 2 options"
+      }
+    ]
+  },
+
+  "moneyField": {
+    "field": "moneyField",
+    "label": "Money field",
+    "help": "Set up to require a value between £0 and £50",
+    "inputClasses": "text-money",
+    "parsley-validation": 
+    [
+      {
+        "validator": "required",
+        "value": true,
+        "error-message":"This is a required field"
+      },
+      {
+        "validator": "pattern",
+        "value": "^\\d*(?:\\.?\\d{0,2})$",
+        "error-message":"Please enter a valid amount"
+      },
+      {
+        "validator": "range",
+        "value": "[0,50]",
+        "error-message":"Please enter a an amount between £0 and £50"
+      }
+    ]
+  },
+
+  "selectField": {
+    "field": "selectField",
+    "label": "Select box",
+    "values": ["option 1", "option 2", "option 3"],
+    "parsley-validation": 
+    [
+      {
+        "validator": "required",
+        "value": true,
+        "error-message":"Please select an option"
+      }
+    ]
+  },
+
+
+  "submit": {
+    "label": "Send form",
+    "href": "form-end"
+  }
+}
